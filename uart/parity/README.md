@@ -16,4 +16,7 @@ Building on our UART RX, we add a parity bit to the frame. Now, `uart_top.vhd`, 
 
 > **Note:** Be sure to add `uart_pkg.vhd`, `ascii_pkg.vhd`, and `msg_pkg.vhd` from `../rx/`, `btn_debounce.vhd` from `../../db/`, and `seg_driver.vhd` from `../../fifo/` as they're required for bitstream generation.
 
+| Date | Change | Reason |
+|------|--------|--------|
+| 11/14/26 | Changed parity_calc input `msg` to `data` | Using the term `data` is more accurate. |
 

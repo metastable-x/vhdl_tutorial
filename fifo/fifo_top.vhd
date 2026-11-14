@@ -24,6 +24,7 @@ architecture rtl of fifo_top is
     signal wr_prev : std_logic := '0';
 
     signal wr_stb  : std_logic;
+    signal rd_pop  : std_logic;
     signal rd_stb  : std_logic;
     signal rd_data : std_logic_vector(13 downto 0) := (others => '0');
     signal full    : std_logic;
@@ -60,8 +61,8 @@ begin
         end if;
     end process;
     
-    wr_stb <= rd_db and (not rd_prev);
-    rd_stb <= wr_db and (not wr_prev);
+    wr_stb <= wr_db and (not wr_prev);
+    rd_pop <= rd_db and (not rd_prev);
     
     fifo_inst : entity work.fifo
         generic map (
@@ -72,6 +73,7 @@ begin
             rst     => rst,
             wr_stb  => wr_stb,
             wr_data => sw,
+            rd_pop  => rd_pop,
             rd_stb  => rd_stb,
             rd_data => rd_data,
             full    => full,

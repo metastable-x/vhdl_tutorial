@@ -10,14 +10,14 @@ package uart_pkg is
 
     type uart_state_t is (idle, start, data, par, stop);
 
-    function parity_calc(msg : std_logic_vector; parity : string) return std_logic; 
+    function parity_calc(data : std_logic_vector; parity : string) return std_logic;
     -- PARITY : "NONE", "EVEN", "ODD", "MARK", or "SPACE"
 
 end package;
 
 package body uart_pkg is
 
-    function parity_calc(msg : std_logic_vector; parity : string) return std_logic is
+    function parity_calc(data : std_logic_vector; parity : string) return std_logic is
         variable p : std_logic := '0';
     begin
         if (parity = "MARK") then
@@ -25,8 +25,8 @@ package body uart_pkg is
         elsif (parity = "SPACE") then
             return '0';
         else
-            for i in msg'range loop
-                p := p xor msg(i);
+            for i in data'range loop
+                p := p xor data(i);
             end loop;
             if (parity = "ODD") then
                 p := not p;
