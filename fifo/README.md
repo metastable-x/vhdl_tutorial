@@ -22,5 +22,5 @@ In this video we build a **FIFO** (First-In First-Out). FIFOs allow us to store 
 | Date | Change | Reason |
 |------|--------|--------|
 | 5/15/26 | `wr_en` & `rd_en` are now `wr_stb` & `rd_stb` | `stb` means that the data associated is only valid for a single clock cycle. `en` can mean different things to different systems so we've changed it for clarity. |
-| 11/14/26 | `rd_stb` changed to `rd_pop` and `rd_stb` is now the read data output strobe | rd_stb makes more sense as an output signal indicating that rd_data is valid for that clock cycle. |
+| 11/14/26 | `rd_stb` changed to `rd_pop` with `rd_stb` now the read data output strobe | `rd_stb` makes more sense as an output signal indicating that `rd_data` is valid for that clock cycle. |
 

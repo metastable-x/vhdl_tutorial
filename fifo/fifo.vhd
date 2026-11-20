@@ -48,6 +48,7 @@ begin
                 cnt     <= 0;
                 buf     <= (others => (others => '0'));
                 rd_data <= (others => '0');
+                rd_stb  <= '0';
             else
 
                 rd_stb <= '0';

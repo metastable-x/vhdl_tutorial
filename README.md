@@ -64,8 +64,16 @@ Each folder has its own `README.md` with a link to the corresponding video, a pr
    git clone https://github.com/metastable-x/vhdl_tutorial.git
    ```
 
-2. **Simulate:** Open the project in ModelSim/Questasim, compile the source and testbench files, then run the simulation.
+2. **Generate the projects:**
 
-3. **Synthesize:** Open or create a Vivado project, add the VHDL source and constraints file, then run synthesis → implementation → generate bitstream.
+   Open a terminal and run this command while in the repo root. This will create a vivado project for all lessons that have hardware demonstrations.
+   ```bash 
+   vivado -mode batch -source './make_projects.tcl' 
+   ```
+   The generated `.xpr` files can be found in `/vivado` in their respective project subfolders. 
 
-4. **Program:** Connect your Basys3 over USB, open the Hardware Manager in Vivado, and program the device with the generated `.bit` file.
+3. **Simulate a design:** Open ModelSim/Questasim, compile the source and testbench files, and then run the simulation.
+
+4. **Generate a bitstream:** Open a Vivado project and then run synthesis → implementation → generate bitstream.
+
+5. **Program:** Connect your Basys3 over USB, open the hardware manager in Vivado, and program the device with the generated `.bit` file.
